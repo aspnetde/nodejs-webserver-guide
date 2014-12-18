@@ -6,7 +6,7 @@ The main purpose of this guide is to summarize all the steps one has to take to 
 
 If you find anything you can't agree with, please let me know. Send me an email or just a pull request and I will see if I am able to fix this ;-).
 
-## Table of Contents
+## Initial server installation
 
 ### Make Tools
 
