@@ -317,7 +317,7 @@ There needs to be a user with a backup role to create backups of all databases:
     	}
 	)
 
-Backup script
+#### Backup script
 
 Save the following shell script as `/var/backup/create-backup-for-mongo` and make it executable:
 
@@ -406,11 +406,7 @@ This will mount the backup server as a local drive and it will reconnect on each
  
 	//u100445.your-backup.de/backup /mnt/backup-server       cifs    iocharset=utf8,rw,credentials=/var/backup/backup-credentials.txt,uid={localusername},gid={localusergroupid},file_mode=0660,dir_mode=0770 0       0
 
-(If you are not aware of the group id, just type 
-
-	id 
-
-and it will be displayed for the current user (in case you want to mount the drive in his/her context)).
+(If you are not aware of the group id, just type `id` and it will be displayed for the current user (in case you want to mount the drive in his/her context)).
 
 #### Credentials
 
