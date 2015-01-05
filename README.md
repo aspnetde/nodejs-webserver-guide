@@ -173,7 +173,7 @@ In `/var/www` execute:
 
 In `/var/www/website-com/repo` run
 
-	git init –bare
+	git init --bare
 
 ### Add the Git deployment hook
 
