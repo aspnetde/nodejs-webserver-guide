@@ -456,7 +456,9 @@ Action | Command
 ------------ | -------------
 Change User name |	passwd
 Grant root priviliges | visudo, add: {username} ALL=(ALL:ALL) ALL
-System Updates	| sudo apt-get update && sudo apt-get upgrade
+System UpdateS: Fetching the list of available updates	| sudo apt-get update
+System UpdateS: Strictly upgrading the current packages | sudo apt-get upgrade
+System UpdateS: Installing updates (new ones) | sudo apt-get dist-upgrade
 Reboot | sudo reboot
 Remove a directory and its sub-directories recursively | rm –R {directoryname} 
 Remove everything, files and directories | sudo rm -rf *
