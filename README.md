@@ -47,13 +47,8 @@ Also make sure the server starts automatically after booting the system (Should 
 
 PM2 manages the different node applications running on this server.
 
-	npm install pm2 -g
+	sudo npm install pm2 -g
 
-To start pm2 with the system:
-
-	sudo env PATH=$PATH:/home/{username}/.nvm/v0.10.32/bin pm2 startup ubuntu -u {username}
-
-(Replace v0.10.32 with the actual version.)
 
 ### Glances
 
@@ -98,13 +93,11 @@ For a detailed explanation see [http://docs.mongodb.org/manual/tutorial/install-
 
 	sudo vi /etc/mongod.conf 
 
-
 Set:
 
 	auth = true
 	bind_ip = 127.0.0.1
 
-	
 ##### Add admin user
 
 Open the Mongo Console with `mongo`.
@@ -245,12 +238,34 @@ By cloning your deployment repository on your local development machine and push
 
 Make sure the user you’re connecting with has the necessary rights to run the Git repository. It’s recommended to connect with the user you have just created before to run the website, because he/she has the necessary access rights.
 
-### Start the node application with PM2
+### Set up PM2
 
-With the `–u` parameter you can specify to run the application in the context of the given user, in our case the user you did just create before.
+#### Give the user temporary root privilige
+
+Call `visudo` and add the following line:
+
+	{username} ALL=(ALL:ALL) ALL
+
+#### Run the startup script
+
+To start pm2 with the system:
+
+	pm2 startup ubuntu
+	
+PM2 will tell you, you have to run this command as root, and print the full command to execute, for example:
+
+	sudo env PATH=$PATH:/home/{username}/.nvm/v0.10.32/bin pm2 startup ubuntu -u {username}
+
+#### Remove root privilege
+
+Call `visudo` again and remove the line you did just add before.
+
+#### Start your application 
 
 	cd /var/www/website-com/www/
-	pm2 start app.js --name "website-com" -u website-com
+	pm2 start app.js --name "website-com"
+
+**Note: The PM2 instance is now running in the context if your website's user. This is especially useful to limit file access, but you can't see any other PM2 process or applications as you could see if running all websites under one single user.**
 
 If everything works PM2 reponds with `Process {nameofstarting.js}` launched. Wait a few seconds and use
 
