@@ -6,6 +6,8 @@ The main purpose of this guide is to summarize all the steps one has to take to 
 
 If you find anything you can't agree with, please let me know. Send me an email or just a pull request and I will see if I am able to fix this ;-).
 
+This guide contains some details regarding security that won't necessarily matter if you only want to run a single website on your server. In that case take a look at ["Setting up Ubuntu Server for running a single Website with Node.js and MongoDB"](https://github.com/aspnetde/ubuntu-nodejs-mongodb-guide).
+
 ## Initial server installation
 
 ### Make Tools
