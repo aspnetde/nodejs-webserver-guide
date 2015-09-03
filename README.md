@@ -58,6 +58,7 @@ Glances can be used to monitor the overall state of the server.
 
 	sudo apt-get install python-pip build-essential python-dev
 	sudo pip install Glances
+	sudo apt-get install lm-sensors
 	sudo pip install PySensors
 
 ### Git
